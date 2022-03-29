@@ -1,0 +1,206 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Resume</title>
+<style>
+body {
+    color: #000000;
+    background: #EEEEEE;
+    font: 1.1em "Times New Roman";
+    line-height: 1.2;
+    margin: 40px 0;
+}
+#resume {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 40px 60px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 2px 2px 4px #AAAAAA;
+    -webkit-box-shadow: 2px 2px 4px #AAAAAA;
+}
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 200%;
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    border-bottom: 1px solid #000000;
+    text-transform: uppercase;
+    font-size: 130%;
+    margin: 1em 0 0 0;
+    padding: 0;
+}
+h3 {
+    font-size: 100%;
+    margin: 0.8em 0 0.3em 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+p {
+    margin: 0 0 0.5em 0;
+    padding: 0;
+    }
+ul {
+    padding: 0;
+    margin: 0 1.5em;
+    }
+/* ul immediately after h1 = contact list */
+h1 + ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    }
+h1 + ul > li {
+    display: inline;
+    white-space: pre;
+    list-style-type: none;
+}
+h1 + ul > li:after {
+    content: "  \2022  ";
+}
+h1 + ul > li:last-child:after {
+    content: "";
+}
+/* p immediately after contact list = summary */
+h1 + ul + p {
+    margin: 1em 0;
+}
+@media print {
+    body {
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+    #resume {
+        margin: 0;
+        padding: 0;
+        border: 0px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    /* Make links black in PDF */
+    /* Move this outside the print block to apply this in HTML too */
+    a, a:link, a:visited, a:hover {
+        color: #000000;
+        text-decoration: underline;
+    }
+}
+@page {
+    /* Change margins and paper size of PDF */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/@page */
+    size: letter;
+    margin: 0.5in 0.8in;
+}
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 16pt;
+        margin: 0;
+        padding: 0;
+        background: #FFFFFF !important;
+    }
+    #resume {
+        margin: 0;
+        padding: 1em;
+        border: 0px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+}
+
+</style>
+</head>
+<body>
+<div id="resume">
+<!-- The (first) h1 will be used as the <title> of the HTML page -->
+<h1>Ashish Maharjan</h1>
+<!-- The unordered list immediately after the h1 will be formatted on a single
+line. It is intended to be used for contact details -->
+<ul>
+<li><a href="mailto:arajmaharjan@gmail.com">arajmaharjan@gmail.com</a></li>
+<li> (+1) 971-341-6357</li>
+<li><a href="http://ashishmaharjan.com">ashishmaharjan.com</a></li>
+<li>Keizer, Oregon</li>
+</ul>
+<!-- The paragraph after the h1 and ul and before the first h2 is optional. It
+is intended to be used for a short summary. -->
+<p style="text-align:center"> Aspring DevOps Engineer endeavoring to broaden his knowledge 
+
+</p>
+<h2>Work Experience</h2>
+<!-- You have to wrap the "left" and "right" half of these headings in spans by
+hand -->
+<h3><span>Full Stack Software Engineer | Western Oregon University Capstone Project ( Jan 2022 - Present )</span></h3>
+<p>Creating a web application for a hikers named Wonderer. From the
+    beginning until the end of the project, we're using the agile technique
+    of software development using <strong>Python, PostgreSQL
+        server, AWS, Version control (GIT), HTML, CSS, Bootstrap, JavaScript
+        for front-end</strong>, and <strong>RESTful APIs</strong> </p>
+<h3><span>Research Assistant Intern | Testing Tutor Project | Western Oregon University ( Jun 2021 - Dec 2021 )</span></h3>
+<p>Team of students helped build Nationa science institute provisioned web application for a learning
+    platform named Testing Tutor following agile maaethod of software
+    development using: <strong> SQL server, Azure, Version control (GIT),
+    HTML, Bootstrap, Docker, Linux </strong></p>
+<h3><span>Pharmacy Technician | Walgreens ( Dec 2021 - Present )</span></h3>
+<p>Worked directly under the direction of the pharmacist and was responsible for utilizing pharmacy systems to 
+    gather patient and medication information as well as for processing prescriptions.</p>
+<h3><span>Senior Server | Katsu Sushi ( Jun 2018 - Mar 2020 ) </span></h3>
+<p>Enthusiastically greet customers to ensure a positive customer service experience.
+    Efficiently take orders and ensure that orders are repeated for accuracy and prepare, serve a variety of alcoholic and non-alcoholic beverages. Operate cash registers to process payments while also interacting and
+    communicating with customers and answering questions they may have. Check and replenish stock. Answer phone calls and take order </p>
+    
+<h2>TECHNICAL SKILLS</h2>
+<p></p>
+<ul>
+<li><strong>DevOps Tools:</strong> Jenkins, Docker, Kubernetes</li>
+<li><strong>Version Control:</strong> Git</li>
+<li><strong>Bug Tracking Tools:  </strong> Jira</li>
+<li><strong>Source Control Management Tool:  </strong> Gitlab, GitHub, Bitbucket</li>
+<li><strong>Cloud Platforms: </strong> Amazon Web Services(AWS), Microsoft Azure</li>
+<li><strong>Monitoring Tools </strong> AWS Cloud Watch</li>
+<li><strong>Collaboration Tools: </strong>MS teams, Slack, Discord, Hangouts, Skype, Zoom.</li>
+<li><strong>SDLC: </strong> Agile, Waterfall</li>
+<li><strong>Languages: </strong> Python, java, C++, HTML5, CSS3, JavaScript</li>
+<li><strong>Operating Systems: </strong> Linux, Ubuntu, Mac OS X, Windows 98/XP/7/Vista/8/10/11
+</li>
+</ul>
+<h2>SKILLS Summary</h2>
+<p></p>
+<ul>
+<li>Experienced in designing and maintaining infrastructure on AWS Cloud services such as <strong> VPC, EC2, RDS, S3, Route53, AWS CloudWatch </strong>  and <strong> IAM. </strong></li>
+<li>Experienced in <strong>migrating servers</strong> from data center to <strong>Amazon Web Services cloud</strong></li>
+<li>Hands-on experience with databases <strong> MySQL, MongoDB, AuroraDB, DynomoDB</strong> creating users, performing dump/restore</li>
+<li>Experience working with version control systems like <strong>GIT</strong> and used source code management tools <strong>GitHub, GitLab, Bitbucket </strong> including command line applications.</li>
+<li>Experienced in creating complex <strong>IAM policies, Roles </strong>and user management for delegated access within AWS.</li>
+<li>Implemented a <strong>CI/CD pipeline</Strong> involving <strong> GitHub Actions, Jenkins, Docker</strong> from commit to deployment</li>    
+<li>Knowledge of Software Development Life Cycle Methodologies<strong>Waterfall</strong>, and <strong>Agile</strong>.</li>
+<li>Experienced in multi platforms like <strong>UNIX, Ubuntu </strong> and <strong> Windows 98/XP/Vista/7/8/10/11 </strong>supporting production, test, and development environments.</li>
+</ul>
+<h2>Eduaction</h2>
+<h3>B.Sc. in Computer Information Systems | Western Oregon University ( Mar 2018 - Jun 2022 )</h3>
+<p>Degree Concentration:</p>
+<ul>
+<li>Operating’s Systems</li>
+<li>Networks</li>
+<li>Data Visualization</li>
+<li>Data Analytics</li>
+<li>Microservices Architecture</li>
+<li>Information Systems Automation</li>
+<li>Project Management</li>
+<li>Systems Administration</li>
+<li>Project Implementation</li>
+</ul> 
+<h2>Languages</h2>
+<p></p>
+<p>English, Nepali, Newari, Hindi</p>
+
+
+</div>
+</body>
+</html>
