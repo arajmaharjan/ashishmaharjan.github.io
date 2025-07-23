@@ -25,8 +25,19 @@
 						<nav>
 							<ul>
 								<li><a href="https://www.linkedin.com/in/ashish-raj-maharjan-b7a678284/" class="icon brands fa-linkedin"><span class="label">linkedin</span>Linkedin</a></li>
+								<li>
+									<a href="https://www.dice.com/dashboard/profiles" class="icon solid fa-globe">
+									  <span class="label">Dice</span>Dice
+									</a>
+								  </li>
+								  
 								<li><a href="https://github.com/arajmaharjan" class="icon brands fa-github"><span class="label">Github</span>Github</a></li>
-								
+								<li>
+									<a href="assets/resume.pdf" class="icon solid fa-file-alt" target="_blank">
+									  <span class="label">Resume</span>Resume
+									</a>
+								  </li>
+								  
 							</ul>
 						</nav>
 					</header>
@@ -36,10 +47,74 @@
 					</footer>
 			</div>
 		</div>
+		<!-- Core Skills Sidebar (Right) -->
+		<nav id="core-skills-sidebar">
+			<button id="toggle-sidebar">☰</button>
+			<h2>Core Technologies</h2>
+			<ul>
+				<li><i class="fab fa-docker"></i> Docker</li>
+				<li><i class="fas fa-network-wired"></i> Kubernetes</li>
+				<li><i class="fab fa-aws"></i> AWS</li>
+				<li><i class="fas fa-sync-alt"></i> CI/CD</li>
+				<li><i class="fab fa-python"></i> Python</li>
+				<li><i class="fab fa-linux"></i> Linux</li>
+				<li><i class="fab fa-git-alt"></i> Git</li>
+				<li><i class="fab fa-github"></i> GitHub Actions</li>
+				<li><i class="fas fa-cloud"></i> CloudFormation</li>
+				<li><i class="fas fa-code"></i> Terraform</li>
+				<li><i class="fas fa-server"></i> Ansible</li>
+				<li><i class="fas fa-cogs"></i> Jenkins</li>
+				<li><i class="fas fa-cogs"></i> Bamboo</li>
+				<li><i class="fas fa-tasks"></i> Jira</li>
+			
+				
+				
+				<li><i class="fab fa-microsoft"></i> Azure DevOps</li>
+				
+				<li><i class="fas fa-search"></i> SonarQube</li>
+				<li><i class="fas fa-chart-bar"></i> Prometheus</li>
+				<li><i class="fas fa-chart-line"></i> Grafana</li>
+				<li><i class="fas fa-database"></i> Splunk</li>
+				<li><i class="fas fa-database"></i> ELK Stack</li>
+				<li><i class="fas fa-desktop"></i> Nagios</li>
+				
+				
+				<li><i class="fas fa-database"></i> MySQL</li>
+				<li><i class="fas fa-database"></i> PostgreSQL</li>
+				<li><i class="fas fa-database"></i> MongoDB</li>
+				<li><i class="fab fa-ubuntu"></i> Ubuntu</li>
+				<li><i class="fab fa-windows"></i> Windows Server</li>
+				<li><i class="fas fa-shield-alt"></i> Security</li>
+				<li><i class="fas fa-lock"></i> SSL/TLS</li>
+				<li><i class="fas fa-bug"></i> Debugging</li>
+				<li><i class="fas fa-robot"></i> Automation</li>
+				<li><i class="fas fa-terminal"></i> Bash/Shell</li>
+				
+				
+				
+				<li><i class="fas fa-fire"></i> Incident Response</li>
+				<li><i class="fas fa-balance-scale"></i> Load Balancing</li>
+				<li><i class="fas fa-tasks"></i> Agile</li>
+				
+			</ul>
+		</nav>
+
 		<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
+
+			// Sidebar toggle
+			document.getElementById('toggle-sidebar').onclick = function() {
+				document.getElementById('core-skills-sidebar').classList.toggle('expanded');
+			};
+			// Expand sidebar on hover (desktop only)
+			document.getElementById('core-skills-sidebar').onmouseenter = function() {
+				this.classList.add('expanded');
+			};
+			document.getElementById('core-skills-sidebar').onmouseleave = function() {
+				this.classList.remove('expanded');
+			};
 		</script>
 	</body>
 </html>

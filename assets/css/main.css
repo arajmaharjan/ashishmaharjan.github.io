@@ -1079,3 +1079,100 @@ input, select, textarea {
 		#header nav {
 			padding: 0 1em;
 		} }
+
+/* Core Skills Sidebar (Right) */
+#core-skills-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 110px; /* collapsed width remains as previously set */
+  height: 100%;
+  background: transparent;
+  color: #fff;
+  transition: width 0.3s;
+  z-index: 1000;
+  overflow-x: hidden;
+  padding-top: 20px;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+}
+
+#core-skills-sidebar.expanded {
+  width: 300px; /* expanded width set to 300px */
+}
+
+#core-skills-sidebar h2 {
+  font-size: 1.2em;
+  margin: 50px 0 20px 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+#core-skills-sidebar.expanded h2 {
+  opacity: 1;
+}
+
+#core-skills-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#core-skills-sidebar li {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  opacity: 0;
+  transition: opacity 0.3s, width 0.3s;
+  color: #000;
+  background: rgba(255,255,255,0.7);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  width: auto; /* default width */
+}
+
+#core-skills-sidebar.expanded li {
+  opacity: 1;
+  width: 100%; /* Make skill tabs fill the expanded sidebar */
+}
+
+#core-skills-sidebar i {
+  margin-right: 12px;
+  font-size: 1.3em;
+  color: #000;
+}
+
+#toggle-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+  width: 100%;      /* Fill the whole sidebar width */
+  height: 60px;     /* Adjust height as needed */
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s;
+}
+
+/* Make the toggle button wider when sidebar is expanded */
+#core-skills-sidebar.expanded #toggle-sidebar {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  #core-skills-sidebar {
+    width: 0;
+  }
+  #core-skills-sidebar.expanded {
+    width: 180px;
+  }
+}
