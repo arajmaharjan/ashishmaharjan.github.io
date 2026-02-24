@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Resume – Ashish Maharjan</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Resume page overrides */
+			body, html {
+				overflow-y: auto;
+				height: auto;
+				min-height: 100%;
+			}
+
+			#wrapper {
+				min-height: 100vh;
+				height: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+				padding: 3em 1em 4em;
+				box-sizing: border-box;
+			}
+
+			#bg {
+				position: fixed;
+			}
+
+			#overlay {
+				position: fixed;
+			}
+
+			#resume {
+				position: relative;
+				z-index: 10;
+				width: 100%;
+				max-width: 860px;
+				color: rgba(255,255,255,0.85);
+				font-family: 'Source Sans Pro', sans-serif;
+				font-weight: 300;
+				line-height: 1.6;
+				animation: none;
+			}
+
+			/* Back link */
+			.back-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4em;
+				color: rgba(255,255,255,0.5);
+				text-decoration: none;
+				font-size: 0.85em;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				margin-bottom: 2em;
+				transition: color 0.2s;
+			}
+			.back-link:hover { color: rgba(255,255,255,0.9); }
+
+			/* Header block */
+			.resume-header {
+				text-align: center;
+				margin-bottom: 2.5em;
+				padding-bottom: 1.5em;
+				border-bottom: 1px solid rgba(255,255,255,0.15);
+			}
+
+			.resume-header h1 {
+				font-size: 2.4em;
+				font-weight: 900;
+				letter-spacing: 0.05em;
+				color: #fff;
+				margin-bottom: 0.2em;
+				text-transform: uppercase;
+			}
+
+			.resume-header .contact {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 0.5em 1.5em;
+				font-size: 0.88em;
+				color: rgba(255,255,255,0.6);
+				margin-top: 0.8em;
+			}
+
+			.resume-header .contact a {
+				color: rgba(255,255,255,0.7);
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+			.resume-header .contact a:hover { color: #fff; }
+
+			.resume-header .contact span {
+				display: flex;
+				align-items: center;
+				gap: 0.35em;
+			}
+
+			/* Section */
+			.resume-section {
+				margin-bottom: 2.2em;
+			}
+
+			.resume-section h2 {
+				font-size: 0.72em;
+				font-weight: 900;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				color: rgba(255,255,255,0.45);
+				border-bottom: 1px solid rgba(255,255,255,0.12);
+				padding-bottom: 0.5em;
+				margin-bottom: 1.2em;
+			}
+
+			/* Summary */
+			.resume-section p {
+				font-size: 0.95em;
+				color: rgba(255,255,255,0.75);
+				line-height: 1.75;
+			}
+
+			/* Skills grid */
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 0.5em 2em;
+			}
+
+			.skill-row {
+				display: flex;
+				gap: 0.6em;
+				font-size: 0.88em;
+				color: rgba(255,255,255,0.75);
+				line-height: 1.5;
+			}
+
+			.skill-label {
+				font-weight: 900;
+				color: rgba(255,255,255,0.55);
+				min-width: 110px;
+				flex-shrink: 0;
+				font-size: 0.85em;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+			}
+
+			/* Job */
+			.job {
+				margin-bottom: 2em;
+			}
+
+			.job-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				flex-wrap: wrap;
+				gap: 0.3em;
+				margin-bottom: 0.2em;
+			}
+
+			.job-title {
+				font-weight: 900;
+				font-size: 1em;
+				color: #fff;
+				letter-spacing: 0.03em;
+			}
+
+			.job-dates {
+				font-size: 0.82em;
+				color: rgba(255,255,255,0.45);
+				letter-spacing: 0.05em;
+				white-space: nowrap;
+			}
+
+			.job-company {
+				font-size: 0.88em;
+				color: rgba(255,255,255,0.5);
+				font-style: italic;
+				margin-bottom: 0.8em;
+			}
+
+			.job ul {
+				padding-left: 0;
+				list-style: none;
+			}
+
+			.job ul li {
+				font-size: 0.88em;
+				color: rgba(255,255,255,0.72);
+				padding: 0.3em 0 0.3em 1.2em;
+				position: relative;
+				line-height: 1.65;
+			}
+
+			.job ul li::before {
+				content: '–';
+				position: absolute;
+				left: 0;
+				color: rgba(255,255,255,0.3);
+			}
+
+			/* Education */
+			.education-row {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				gap: 0.3em;
+			}
+
+			.education-row .degree {
+				font-weight: 900;
+				color: #fff;
+				font-size: 0.95em;
+			}
+
+			.education-row .school {
+				font-size: 0.88em;
+				color: rgba(255,255,255,0.5);
+			}
+
+			/* Print button */
+			.resume-actions {
+				text-align: center;
+				margin-top: 2.5em;
+			}
+
+			.btn-print {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5em;
+				padding: 0.7em 1.8em;
+				border: 1px solid rgba(255,255,255,0.25);
+				color: rgba(255,255,255,0.7);
+				text-decoration: none;
+				font-size: 0.82em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				cursor: pointer;
+				background: transparent;
+				transition: border-color 0.2s, color 0.2s;
+				font-family: inherit;
+			}
+			.btn-print:hover {
+				border-color: rgba(255,255,255,0.6);
+				color: #fff;
+			}
+
+			/* Print styles */
+			@media print {
+				#bg, #overlay { display: none; }
+				body { background: #fff; color: #000; }
+				#resume { color: #000; }
+				.back-link, .resume-actions { display: none; }
+				.resume-header h1 { color: #000; }
+				.resume-header .contact a { color: #333; }
+				.resume-section h2 { color: #555; border-color: #ccc; }
+				.skill-label { color: #555; }
+				.skill-row, .job ul li, .resume-section p { color: #222; }
+				.job-title { color: #000; }
+				.job-company, .job-dates { color: #555; }
+				.education-row .degree { color: #000; }
+				.education-row .school { color: #555; }
+			}
+
+			/* Responsive */
+			@media (max-width: 600px) {
+				.resume-header h1 { font-size: 1.7em; }
+				.job-header { flex-direction: column; }
+				.education-row { flex-direction: column; }
+				.skills-grid { grid-template-columns: 1fr; }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+
+			<div id="resume">
+
+				<!-- Back -->
+				<a href="index.html" class="back-link">
+					<i class="fas fa-arrow-left"></i> Back to Portfolio
+				</a>
+
+				<!-- Header -->
+				<div class="resume-header">
+					<h1>Ashish Maharjan</h1>
+					<div class="contact">
+						<span><i class="fas fa-map-marker-alt"></i> San Francisco, CA</span>
+						<span><i class="fas fa-phone"></i> (510) 531-4982</span>
+						<span><i class="fas fa-envelope"></i> <a href="mailto:amhrjn94@gmail.com">amhrjn94@gmail.com</a></span>
+						<span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/aashish-maharjan-00112137a/" target="_blank">LinkedIn</a></span>
+						<span><i class="fas fa-globe"></i> <a href="https://www.ashishmaharjan.com" target="_blank">ashishmaharjan.com</a></span>
+					</div>
+				</div>
+
+				<!-- Summary -->
+				<div class="resume-section">
+					<h2>Professional Summary</h2>
+					<p>DevOps Engineer with over 4 years of experience designing and managing CI/CD pipelines, automating cloud infrastructure, and driving large-scale application migrations across AWS and Azure. Proven expertise in container orchestration, infrastructure-as-code, and configuration management within Agile environments. Skilled at coordinating cross-functional teams to deliver secure, high-availability solutions in enterprise settings spanning retail, healthcare, banking, and insurance.</p>
+				</div>
+
+				<!-- Skills -->
+				<div class="resume-section">
+					<h2>Technical Skills</h2>
+					<div class="skills-grid">
+						<div class="skill-row">
+							<span class="skill-label">Cloud & IaC</span>
+							<span>AWS (EC2, S3, RDS, IAM, Lambda, ELB, CloudFormation), Azure, Terraform</span>
+						</div>
+						<div class="skill-row">
+							<span class="skill-label">CI/CD</span>
+							<span>Jenkins, Bamboo, Azure DevOps, Maven, Gradle, SonarQube, Checkmarx</span>
+						</div>
+						<div class="skill-row">
+							<span class="skill-label">Containers</span>
+							<span>Docker, Kubernetes, Helm, JFrog Artifactory, Nexus</span>
+						</div>
+						<div class="skill-row">
+							<span class="skill-label">Config Mgmt</span>
+							<span>Ansible (AAP), Ansible Playbooks, Chef</span>
+						</div>
+						<div class="skill-row">
+							<span class="skill-label">Scripting & VCS</span>
+							<span>Python, Shell, PowerShell, Groovy — Git, Bitbucket, GitHub</span>
+						</div>
+						<div class="skill-row">
+							<span class="skill-label">Monitoring</span>
+							<span>CloudWatch, Nagios, ServiceNow — OS: Linux, Windows Server</span>
+						</div>
+						<div class="skill-row">
+							<span class="skill-label">AI & Automation</span>
+							<span>Claude Code, n8n, LLM API Integration, AI-assisted pipeline automation</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Experience -->
+				<div class="resume-section">
+					<h2>Professional Experience</h2>
+
+					<div class="job">
+						<div class="job-header">
+							<span class="job-title">DevOps Engineer</span>
+							<span class="job-dates">Sep 2025 – Mar 2026</span>
+						</div>
+						<div class="job-company">Cognizant – TJ Maxx (Remote)</div>
+						<ul>
+							<li>Participated in Agile Scrum ceremonies (stand-ups, sprint planning, estimation, retrospectives, and demos) and utilized JIRA for issue tracking and Confluence for documentation, maintaining transparency and continuous improvement across the team.</li>
+							<li>Led the Ansible Automation Platform (AAP) upgrade across production and non-prod environments, coordinating F5 load balancer reconfiguration, gateway node setup, Red Hat support engagement, and maintenance communications to all Ansible users.</li>
+							<li>Executed AAP data export and backup activities using Postman and REST APIs, converting JSON to CSV, capturing VM snapshots across 15 servers, and documenting Automation Hub namespaces and 235 collections in Confluence for IQ/OQ compliance.</li>
+							<li>Upgraded PostgreSQL as an AAP prerequisite, configured database replication between servers, and managed backup/restore procedures while coordinating firewall access requests through ARMS and troubleshooting via the Red Hat support portal.</li>
+							<li>Configured LDAP and SAML-based SSO authentication across all AAP environments post-upgrade, managed service account lifecycle and IAM policy changes to restrict deployer access, and administered AAP user and team governance.</li>
+							<li>Built an end-to-end Jenkins-based test automation pipeline to validate AAP post-upgrade stability, set up and maintained Jenkins agents (including Windows agents for ZBot), troubleshot Gradle build pipelines, and performed smoke testing to prevent critical failures in production.</li>
+							<li>Remediated 45+ vulnerabilities across Jenkins, Ansible, and Artemis servers via ServiceNow, led the SonarQube cloud migration and Apigee proxy decommission, and managed the full Change Request lifecycle through ServiceNow CAB approvals and post-implementation validation documentation in Confluence.</li>
+						</ul>
+					</div>
+
+					<div class="job">
+						<div class="job-header">
+							<span class="job-title">DevOps Engineer</span>
+							<span class="job-dates">Jun 2024 – Sep 2025</span>
+						</div>
+						<div class="job-company">Cognizant – Elevance Health (Remote)</div>
+						<ul>
+							<li>Architected and managed high-scale CI/CD pipelines in Bamboo, automating the full build and deployment lifecycle for the migration of 200+ processing applications from on-premise to Azure, synchronizing build plans with Bitbucket triggers for a seamless transition.</li>
+							<li>Administered version control and branching strategies in Bitbucket, facilitating a rigorous multi-environment deployment strategy across Dev, UAT, and Production while ensuring code integrity and seamless collaboration across global teams.</li>
+							<li>Organized and led technical demo sessions for every environment promotion, coordinated end-user validation testing cycles, and ensured stakeholder alignment and operational readiness before advancing through each stage of the lifecycle.</li>
+							<li>Integrated SonarQube static code analysis and automated quality gates into the CI/CD lifecycle, partnered with DevSecOps and QA teams to embed security scanning, and ensured only packages meeting strict performance and security benchmarks were promoted to production.</li>
+							<li>Managed artifact versioning and centralized storage in JFrog Artifactory, optimized build performance and artifact cleanup within JFrog and Bamboo, and designed robust packaging workflows to bundle complex applications for deployment into Azure High Availability and Disaster Recovery (HADR) environments.</li>
+							<li>Automated infrastructure provisioning, application configuration, smoke testing, and environment validation using PowerShell scripting and Terraform (IaC), significantly reducing manual effort across rapid deployment phases.</li>
+							<li>Supported the post-migration warranty period by providing rapid troubleshooting and deploying stability patches through the established Bamboo and JFrog framework, ensuring zero service disruption throughout the engagement.</li>
+						</ul>
+					</div>
+
+					<div class="job">
+						<div class="job-header">
+							<span class="job-title">DevOps Engineer</span>
+							<span class="job-dates">Aug 2022 – Mar 2023</span>
+						</div>
+						<div class="job-company">Capital One (Remote)</div>
+						<ul>
+							<li>Led migration of a legacy COTS application from Infosys, deploying a headless server environment for automated report generation and decommissioning a legacy mainframe system using CloudFormation, Terraform, Docker, and Vagrant across AWS and Amazon VPCs.</li>
+							<li>Developed Ansible Playbooks rewriting legacy Puppet modules, authored Terraform scripts for Dev/Staging/Prod environments with IAM and Security Group policies, and designed Jenkins CI/CD pipelines integrated with GitHub across all environments.</li>
+							<li>Leveraged a broad AWS services suite (EC2, RDS, EBS, ELB, ALB, S3, KMS, IAM) and built serverless architectures for the Risk Controls platform, enforcing FDIC and internal audit compliance through LDAP/AD-based access management.</li>
+							<li>Automated infrastructure provisioning using Shell and Python scripting, streamlined secrets management with Vault and AWS AMI, and collaborated across three cross-functional teams using JIRA and Confluence.</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Education -->
+				<div class="resume-section">
+					<h2>Education</h2>
+					<div class="education-row">
+						<span class="degree">Bachelor of Science in Computer Information Systems</span>
+						<span class="school">Western Oregon University, Monmouth, OR</span>
+					</div>
+				</div>
+
+				<!-- Actions -->
+				<div class="resume-actions">
+					<button class="btn-print" onclick="window.print()">
+						<i class="fas fa-print"></i> Print / Save as PDF
+					</button>
+				</div>
+
+			</div><!-- /resume -->
+		</div><!-- /wrapper -->
+
+		<script>
+			window.onload = function() { document.body.classList.remove('is-preload'); }
+		</script>
+	</body>
+</html>
