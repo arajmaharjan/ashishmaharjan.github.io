@@ -44,6 +44,7 @@ const highlights = [
   { label: "Apps Migrated", value: "200+" },
   { label: "Platform Engineering", value: "Tools" },
   { label: "CI/CD Pipelines", value: "Enterprise" },
+  { label: "Agentic DevOps", value: "AI-Powered" },
 ];
 
 const typingTexts = [
