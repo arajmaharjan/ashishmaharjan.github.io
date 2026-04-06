@@ -9,7 +9,7 @@ export function ShaderLines() {
     camera: THREE.Camera
     scene: THREE.Scene
     renderer: THREE.WebGLRenderer
-    uniforms: any
+    uniforms: Record<string, THREE.IUniform>
     animationId: number
   } | null>(null)
 

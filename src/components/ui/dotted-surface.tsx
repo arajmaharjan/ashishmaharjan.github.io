@@ -1,7 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 type DottedSurfaceProps = Omit<React.ComponentProps<'div'>, 'ref'>;
@@ -9,15 +9,9 @@ type DottedSurfaceProps = Omit<React.ComponentProps<'div'>, 'ref'>;
 export function DottedSurface({ className, children, ...props }: DottedSurfaceProps) {
     const { resolvedTheme } = useTheme();
     const containerRef = useRef<HTMLDivElement>(null);
-    const [mounted, setMounted] = useState(false);
-
-    // Wait for client mount so we have window + resolved theme
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     useEffect(() => {
-        if (!mounted || !containerRef.current) return;
+        if (!containerRef.current) return;
 
         const container = containerRef.current;
 
@@ -154,7 +148,7 @@ export function DottedSurface({ className, children, ...props }: DottedSurfacePr
                 container.removeChild(renderer.domElement);
             }
         };
-    }, [mounted, resolvedTheme]);
+    }, [resolvedTheme]);
 
     return (
         <div

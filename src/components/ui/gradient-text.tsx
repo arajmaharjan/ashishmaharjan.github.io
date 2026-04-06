@@ -4,11 +4,26 @@ import { motion, MotionProps } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
+const MotionSpan = motion.create("span");
+const MotionDiv = motion.create("div");
+const MotionP = motion.create("p");
+const MotionH1 = motion.create("h1");
+const MotionH2 = motion.create("h2");
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const motionComponents: Record<string, React.ComponentType<any>> = {
+  span: MotionSpan,
+  div: MotionDiv,
+  p: MotionP,
+  h1: MotionH1,
+  h2: MotionH2,
+};
+
 interface GradientTextProps
   extends Omit<React.HTMLAttributes<HTMLElement>, keyof MotionProps> {
   className?: string;
   children: React.ReactNode;
-  as?: React.ElementType;
+  as?: keyof typeof motionComponents;
 }
 
 function GradientText({
@@ -17,7 +32,7 @@ function GradientText({
   as: Component = "span",
   ...props
 }: GradientTextProps) {
-  const MotionComponent = motion.create(Component);
+  const MotionComponent = motionComponents[Component] ?? MotionSpan;
 
   return (
     <MotionComponent

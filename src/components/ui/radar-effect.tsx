@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 import React from "react";
 
-export const Circle = ({ className, children, idx, ...rest }: any) => {
+export const Circle = ({ className, children, idx, ...rest }: { className?: string; children?: React.ReactNode; idx?: number; style?: React.CSSProperties } & React.ComponentProps<typeof motion.div>) => {
   return (
     <motion.div
       {...rest}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: idx * 0.1, duration: 0.2 }}
+      transition={{ delay: (idx ?? 0) * 0.1, duration: 0.2 }}
       className={twMerge(
         "absolute inset-0 left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 transform rounded-full border border-neutral-200",
         className

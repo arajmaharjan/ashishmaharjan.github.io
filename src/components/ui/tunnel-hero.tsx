@@ -139,9 +139,11 @@ export default function TunnelShowcase() {
   const mouseTargetRef = useRef<THREE.Vector2>(new THREE.Vector2(0.5, 0.5));
   const mouseCurrentRef = useRef<THREE.Vector2>(new THREE.Vector2(0.5, 0.5));
 
+  const animateFnRef = useRef<((time: number) => void) | null>(null);
+
   const animate = useCallback((time: number) => {
     if (!ctxRef.current) return;
-    animRef.current = requestAnimationFrame(animate);
+    animRef.current = requestAnimationFrame((t) => animateFnRef.current?.(t));
     if (pausedRef.current) {
       lastTimeRef.current = time;
       return;
@@ -159,6 +161,10 @@ export default function TunnelShowcase() {
 
     ctxRef.current.renderer.render(ctxRef.current.scene, ctxRef.current.camera);
   }, []);
+
+  useEffect(() => {
+    animateFnRef.current = animate;
+  }, [animate]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

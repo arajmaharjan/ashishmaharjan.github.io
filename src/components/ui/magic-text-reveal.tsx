@@ -52,13 +52,11 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
   const wrapperRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationFrameRef = useRef<number | null>(null);
-  const lastTimeRef = useRef<number>(performance.now());
+  const lastTimeRef = useRef<number>(0);
     const [isHovered, setIsHovered] = useState(false);
   const [showText, setShowText] = useState(false);
   const [hasBeenShown, setHasBeenShown] = useState(false);
   const [wrapperSize, setWrapperSize] = useState({ width: 0, height: 0 });
-  const [textDimensions, setTextDimensions] = useState({ width: 0, height: 0 });
-
   const transformedDensity = 6 - density;
   const globalDpr = useMemo(() => {
     if (typeof window !== "undefined") return window.devicePixelRatio * 1.5 || 1;
@@ -82,11 +80,10 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
     };
   }, []);
 
-  // Update text dimensions when text or font properties change
-  useEffect(() => {
-    const dimensions = measureText(text, fontSize, fontWeight, fontFamily);
-    setTextDimensions(dimensions);
-  }, [text, fontSize, fontWeight, fontFamily, measureText]);
+  const textDimensions = useMemo(
+    () => measureText(text, fontSize, fontWeight, fontFamily),
+    [text, fontSize, fontWeight, fontFamily, measureText]
+  );
 
   // Create particles from text
   const createParticles = useCallback((
