@@ -57,7 +57,7 @@ function computeIconPositions(icons?: React.ReactNode[], images?: string[]): Ico
 
 export function IconCloud({ icons, images, labels }: IconCloudProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const iconPositions = useMemo(() => computeIconPositions(icons, images), [icons, images])
+  const [iconPositions] = useState(() => computeIconPositions(icons, images))
   const [isDragging, setIsDragging] = useState(false)
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 })
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })

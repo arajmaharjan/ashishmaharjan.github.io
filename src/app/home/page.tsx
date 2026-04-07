@@ -134,7 +134,7 @@ export default function Home() {
             <div className="mt-2 w-screen relative left-1/2 -ml-[50vw]">
               <MorphingText
                 texts={typingTexts}
-                className="text-white/80 h-8 md:h-10 lg:h-10 whitespace-nowrap text-[25px]"
+                className="text-white/80 h-8 md:h-10 lg:h-10 whitespace-nowrap text-[clamp(12px,3.5vw,25px)]"
               />
             </div>
           </motion.div>
