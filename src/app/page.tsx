@@ -63,6 +63,11 @@ export default function EntryPage() {
   }, []);
 
   const handleEnter = () => {
+    // Play impact sound on enter
+    const audio = new Audio('/sounds/mixkit-intro-transition-1146.wav');
+    audio.volume = 0.5;
+    audio.play().catch(() => {});
+
     setExiting(true);
 
     // Immediately show shader rings — they cross-fade in over the spiral
