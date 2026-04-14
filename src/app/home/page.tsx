@@ -131,7 +131,7 @@ export default function Home() {
               underlineOffset="-bottom-2"
               className="py-2"
             />
-            <div className="mt-2 w-screen relative left-1/2 -ml-[50vw] flex justify-center items-center">
+            <div className="mt-2 w-full flex justify-center items-center">
               <MorphingText
                 words={typingTexts}
                 className="h-8 md:h-10 lg:h-10 whitespace-nowrap text-[clamp(12px,3.5vw,25px)] text-center"
