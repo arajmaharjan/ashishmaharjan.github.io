@@ -158,7 +158,7 @@ export default function EntryPage() {
             aria-label="Enter portfolio"
           >
             <MorphingText
-              texts={morphingTexts}
+              words={morphingTexts}
               className="h-10 text-2xl tracking-[0.2em] uppercase font-extralight md:h-12 md:text-3xl lg:text-4xl transition-all duration-700 group-hover:tracking-[0.3em]"
             />
           </button>
