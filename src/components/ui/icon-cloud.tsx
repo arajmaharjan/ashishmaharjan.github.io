@@ -23,6 +23,7 @@ function easeOutCubic(t: number): number {
 }
 
 const ICON_SIZE = 50
+const RENDER_SIZE = 256 // High-res offscreen raster so hover-scale stays crisp
 const SPHERE_RADIUS = 450
 const SPHERE_RADIUS_X = 550
 const CANVAS_SIZE = 1200
@@ -85,32 +86,43 @@ export function IconCloud({ icons, images, labels }: IconCloudProps) {
 
     const newIconCanvases = items.map((item, index) => {
       const offscreen = document.createElement("canvas")
-      offscreen.width = ICON_SIZE
-      offscreen.height = ICON_SIZE
+      offscreen.width = RENDER_SIZE
+      offscreen.height = RENDER_SIZE
       const offCtx = offscreen.getContext("2d")
 
       if (offCtx) {
+        offCtx.imageSmoothingEnabled = true
+        offCtx.imageSmoothingQuality = "high"
         if (images) {
           const img = new Image()
           img.crossOrigin = "anonymous"
           img.src = items[index] as string
           img.onload = () => {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height)
-            const half = ICON_SIZE / 2
+            const half = RENDER_SIZE / 2
             offCtx.beginPath()
             offCtx.arc(half, half, half, 0, Math.PI * 2)
             offCtx.closePath()
             offCtx.clip()
-            offCtx.drawImage(img, 0, 0, ICON_SIZE, ICON_SIZE)
+            offCtx.drawImage(img, 0, 0, RENDER_SIZE, RENDER_SIZE)
             imagesLoadedRef.current[index] = true
           }
         } else {
           const svgString = renderToString(item as React.ReactElement)
+          // Replace any existing width/height with RENDER_SIZE so rasterisation
+          // happens at high resolution (drawImage will still size to ICON_SIZE).
+          const sized = svgString
+            .replace(/\swidth="[^"]*"/, "")
+            .replace(/\sheight="[^"]*"/, "")
+            .replace(
+              /<svg\b/,
+              `<svg width="${RENDER_SIZE}" height="${RENDER_SIZE}"`
+            )
           const img = new Image()
-          img.src = "data:image/svg+xml;base64," + btoa(svgString)
+          img.src = "data:image/svg+xml;base64," + btoa(sized)
           img.onload = () => {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height)
-            offCtx.drawImage(img, 0, 0, ICON_SIZE, ICON_SIZE)
+            offCtx.drawImage(img, 0, 0, RENDER_SIZE, RENDER_SIZE)
             imagesLoadedRef.current[index] = true
           }
         }
@@ -242,6 +254,8 @@ export function IconCloud({ icons, images, labels }: IconCloudProps) {
     const canvas = canvasRef.current
     const ctx = canvas?.getContext("2d")
     if (canvas && ctx) {
+      ctx.imageSmoothingEnabled = true
+      ctx.imageSmoothingQuality = "high"
       const animate = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
 

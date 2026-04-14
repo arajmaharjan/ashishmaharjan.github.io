@@ -13,12 +13,22 @@ export default function SpotlightCard({
   className,
 }: SpotlightCardProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const pendingRef = useRef<{ x: number; y: number } | null>(null);
 
   function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    ref.current.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-    ref.current.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+    pendingRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    if (rafRef.current != null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const el = ref.current;
+      const p = pendingRef.current;
+      if (!el || !p) return;
+      el.style.setProperty("--mouse-x", `${p.x}px`);
+      el.style.setProperty("--mouse-y", `${p.y}px`);
+    });
   }
 
   return (

@@ -59,7 +59,7 @@ export const MinimalistHero = ({
   return (
     <div
       className={cn(
-        'relative flex h-screen w-full flex-col items-center justify-center bg-background px-8 pt-8 pb-0 font-sans md:px-12 md:pt-12',
+        'relative flex h-screen w-full flex-col items-center justify-center bg-background px-8 pt-5 pb-0 font-sans md:px-12 md:pt-5',
         className
       )}
     >
@@ -115,7 +115,7 @@ export const MinimalistHero = ({
             <motion.img
                 src={imageSrc}
                 alt={imageAlt}
-                className="relative z-10 h-auto w-72 object-cover md:w-80 lg:w-96"
+                className="relative z-10 h-auto w-72 object-contain md:w-80 lg:w-96"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}

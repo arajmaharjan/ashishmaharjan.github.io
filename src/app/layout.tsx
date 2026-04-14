@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import { Inter } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
-import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("antialiased", sourceSans.variable)}
+      className={cn("antialiased", inter.variable)}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
@@ -47,7 +46,6 @@ export default function RootLayout({
         >
           <TooltipProvider>
             {children}
-            <SmoothCursor />
           </TooltipProvider>
         </ThemeProvider>
       </body>

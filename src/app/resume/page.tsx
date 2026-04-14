@@ -116,7 +116,7 @@ export default function ResumePage() {
       <DottedSurface />
 
       <main
-        className="relative z-[2] max-w-[900px] mx-auto px-6 py-12"
+        className="relative z-[2] max-w-[900px] mx-auto px-6 py-5"
         role="main"
       >
         {/* Back link */}
@@ -127,7 +127,7 @@ export default function ResumePage() {
         >
           <Link
             href="/home"
-            className="no-print inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-xs uppercase tracking-[0.12em] mb-10 transition-colors"
+            className="no-print inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-xs uppercase tracking-[0.12em] mb-6 transition-colors"
             aria-label="Go back to portfolio home page"
           >
             <FontAwesomeIcon icon={faArrowLeft} />
@@ -137,7 +137,7 @@ export default function ResumePage() {
 
         {/* Header */}
         <motion.div
-          className="text-center mb-10 pb-7"
+          className="text-center mb-6 pb-7"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -203,7 +203,7 @@ export default function ResumePage() {
 
         {/* Summary */}
         <motion.section
-          className="mb-10"
+          className="mb-6"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -224,7 +224,7 @@ export default function ResumePage() {
 
         {/* Skills with Tabs and Progress bars */}
         <motion.section
-          className="mb-10"
+          className="mb-6"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -287,7 +287,7 @@ export default function ResumePage() {
 
         {/* Experience with Accordion */}
         <motion.section
-          className="mb-10"
+          className="mb-6"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -311,7 +311,7 @@ export default function ResumePage() {
 
         {/* Additional Experience */}
         <motion.section
-          className="mb-10"
+          className="mb-6"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -334,7 +334,7 @@ export default function ResumePage() {
 
         {/* Education */}
         <motion.section
-          className="mb-10"
+          className="mb-6"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -360,7 +360,7 @@ export default function ResumePage() {
 
         {/* Actions */}
         <motion.div
-          className="no-print text-center mt-10 flex justify-center gap-4"
+          className="no-print text-center mt-6 flex justify-center gap-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

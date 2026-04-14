@@ -35,7 +35,7 @@ import { Terminal, Heart, MousePointer, Braces } from "lucide-react";
 import SpotlightCard from "@/components/SpotlightCard";
 import { SocialIcons } from "@/components/ui/social-icons";
 import { MinimalistHero } from "@/components/ui/minimalist-hero";
-import { MorphingText } from "@/components/ui/liquid-text";
+import { MorphingText } from "@/components/ui/morphing-text";
 import { AnimatedText } from "@/components/ui/animated-text";
 
 const highlights = [
@@ -119,7 +119,7 @@ export default function Home() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={itemVariants} className="mb-12 inline-flex flex-col items-center">
+          <motion.div variants={itemVariants} className="mb-5 inline-flex flex-col items-center">
             <AnimatedText
               text="Ashish Maharjan"
               as="h1"
@@ -131,10 +131,10 @@ export default function Home() {
               underlineOffset="-bottom-2"
               className="py-2"
             />
-            <div className="mt-2 w-screen relative left-1/2 -ml-[50vw]">
+            <div className="mt-2 w-screen relative left-1/2 -ml-[50vw] flex justify-center items-center">
               <MorphingText
-                texts={typingTexts}
-                className="text-white/80 h-8 md:h-10 lg:h-10 whitespace-nowrap text-[clamp(12px,3.5vw,25px)]"
+                words={typingTexts}
+                className="h-8 md:h-10 lg:h-10 whitespace-nowrap text-[clamp(12px,3.5vw,25px)] text-center"
               />
             </div>
           </motion.div>
@@ -156,8 +156,8 @@ export default function Home() {
           imageSrc="/ace.png"
           imageAlt="Ashish Maharjan — DevOps Engineer"
           overlayText={{
-            part1: "build.",
-            part2: "ship.",
+            part1: "Build.",
+            part2: "Deploy.",
           }}
           showHeader={false}
           showFooter={false}
@@ -200,7 +200,7 @@ export default function Home() {
 
         {/* CTA */}
         <motion.div
-          className="mt-8 flex gap-3"
+          className="mt-5 flex gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
@@ -221,7 +221,7 @@ export default function Home() {
       </main>
 
       {/* Core Technologies — Icon Cloud */}
-      <section className="relative z-[2] flex flex-col items-center justify-center pt-4 pb-8 origin-top scale-[0.995]">
+      <section className="relative z-[2] flex flex-col items-center justify-center pt-4 pb-5 origin-top scale-[0.995]">
         <motion.h2
           className="text-lg md:text-xl font-black uppercase tracking-[0.3em] text-muted-foreground mb-4"
           initial={{ opacity: 0 }}
@@ -231,7 +231,7 @@ export default function Home() {
           Core Technologies
         </motion.h2>
         <motion.p
-          className="text-sm text-white/50 mb-8 text-center max-w-md px-4"
+          className="text-sm text-white/50 mb-5 text-center max-w-md px-4"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -301,8 +301,8 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section className="relative z-[2] flex flex-col items-center justify-center pt-8 pb-16 px-4 origin-top scale-[0.995]">
-        <Separator className="mb-12 max-w-md opacity-20" />
+      <section className="relative z-[2] flex flex-col items-center justify-center pt-5 pb-16 px-4 origin-top scale-[0.995]">
+        <Separator className="mb-5 max-w-md opacity-20" />
         <motion.h2
           className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground mb-4"
           initial={{ opacity: 0 }}
@@ -312,7 +312,7 @@ export default function Home() {
           Projects
         </motion.h2>
         <motion.p
-          className="text-sm text-white/50 mb-10 text-center max-w-md"
+          className="text-sm text-white/50 mb-6 text-center max-w-md"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -348,7 +348,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-[2] text-center py-8 text-muted-foreground text-xs font-bold tracking-wider origin-top scale-[0.995]">
+      <footer className="relative z-[2] text-center py-5 text-muted-foreground text-xs font-bold tracking-wider origin-top scale-[0.995]">
         &copy; 2026 Ashish Maharjan. All Rights Reserved.
       </footer>
     </motion.div>
